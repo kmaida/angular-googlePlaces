@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Angular Google Place</title>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+
+	<style>
+		<!--
+			body {
+				font: normal 14px Helvetica, Arial, sans-serif;
+			}
+			input {
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				font-size: 14px;
+				padding: 6px;
+				width: 200px;
+			}
+		-->
+	</style>
+</head>
+
+<body>
+	<div ng-controller="MainCtrl">
+		<label for="place">Search for Location:</label>
+		<input id="place" type="text" google-places options="optionsObj" place="place">
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="googlePlaces.js"></script>
+	<script>
+		(function() {
+			'use strict';
+
+			angular.module('app', ['googlePlaces']);
+
+			angular
+				.module('app')
+				.controller('MainCtrl', function($scope) {
+					$scope.optionsObj = { componentRestrictions: {country: 'us'} };
+
+					$scope.$watch('place', function(newVal, oldVal) {
+						if (newVal) {
+							console.log('New place:', newVal);
+							console.log('Lat:', newVal.geometry.location.lat(), 'Lng:', newVal.geometry.location.lng());
+						}
+					});
+				});
+		}());
+	</script>
+</body>
+</html>
