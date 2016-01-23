@@ -2,13 +2,13 @@
  * Usage:
  *
  * Include Google Maps API: <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script> (Add your API key: &key=)
- * Inject 'googlePlaces' in your app module: angular.module('myApp', ['google-places']);
+ * Inject 'googlePlaces' in your app module: angular.module('myApp', ['googlePlacesAutocomplete']);
  *
  * Use directive as an attribute in your template <input>:
- * <input id="place" type="text" google-places="place" options="optionsObj" ng-model="placeInput">
+ * <input id="place" type="text" google-places-autocomplete="place" options="optionsObj" ng-model="placeInput">
  *
  * Pass an optional options object (see documentation at: https://developers.google.com/maps/documentation/javascript/places-autocomplete#add_autocomplete)
- * The google-places attribute is required to pass data back and forth from the directive to your controller
+ * The google-places-autocomplete attribute value is required to pass data back and forth from the directive to your controller
  *
  * Controller example of $watch for place updates:
  *

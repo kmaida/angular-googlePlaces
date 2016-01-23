@@ -1,15 +1,15 @@
 angular-googlePlacesAutcomplete
 ===
 
-`googlePlacesAutocomplete` is an Angular module with a directive to run Google Places Autocomplete on an input field.
+`googlePlacesAutocomplete` is an Angular module with a directive to run Google Places Autocomplete on an input field. It leverages the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/).
 
 ##Quick Start
 
-Include the `googlePlacesAutocomplete.js` file and inject the `googlePlacesAutocomplete` dependency in your app module to use:
+Include the `googlePlacesAutocomplete.js` file and inject the `googlePlacesAutocomplete` dependency in your app module. You must also include the Google Maps JS API with the Places library in your HTML file.
 
 **index.html:**
 
-Include the Google Maps API with the Places library in your application. For production deployment, make sure you have a Google API key.
+Include the Google Maps API with the Places library in your application. For production deployment, make sure you have a [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 ```
 <script src="https://maps.googleapis.com/maps/api/js?key=[YOUR API KEY]&v=3.exp&libraries=places"></script>
@@ -53,4 +53,6 @@ $scope.$watch('place', function(newVal, oldVal) {
 });
 ```
 
-Note that the `google-places-autocomplete` attribute value and the `ng-model` are NOT the same thing. The value from `google-places-autocomplete` is an object returned from Google Maps with all the components and information for the selected Place. The input field's `ng-model` does not automatically update when a Place is selected. It only contains the initial text that the user began typing before they selected a Place from the autocomplete. You may therefore wish to `$watch` the place object for changes and update the `ng-model` accordingly.
+Note that the `google-places-autocomplete` attribute value and the `ng-model` are NOT the same thing. The value from `google-places-autocomplete` is an object returned from Google Maps with all the components and information for the selected Place. 
+
+The input field's `ng-model` does not automatically update when a Place is selected. It only contains the initial text that the user began typing before they selected a Place from the autocomplete. You may therefore wish to `$watch` the place object for changes and update the `ng-model` accordingly, if necessary for your purposes.
