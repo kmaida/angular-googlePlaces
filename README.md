@@ -1,9 +1,9 @@
-angular-googlePlacesAutcomplete
+angularjs-googlePlacesAutcomplete
 ===
 
 `googlePlacesAutocomplete` is an Angular module with a directive to run Google Places Autocomplete on an input field. It leverages the [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/).
 
-##Quick Start
+## Quick Start
 
 Include the `googlePlacesAutocomplete.js` file and inject the `googlePlacesAutocomplete` dependency in your app module. You must also include the Google Maps JS API with the Places library in your HTML file.
 
@@ -43,13 +43,13 @@ $scope.optionsObj = { componentRestrictions: {country: 'us'} };
 // get latitude and longitude of the place
 // update the field input to the place formatted address
 $scope.$watch('place', function(newVal, oldVal) {
-	if (newVal) {
-		console.log('New place:', newVal);
-		console.log('Lat:', newVal.geometry.location.lat(), 'Lng:', newVal.geometry.location.lng());
+  if (newVal) {
+    console.log('New place:', newVal);
+    console.log('Lat:', newVal.geometry.location.lat(), 'Lng:', newVal.geometry.location.lng());
 
-		// set input ng-model to Place formatted address
-		$scope.placeInput = newVal.formatted_address;
-	}
+    // set input ng-model to Place formatted address
+    $scope.placeInput = newVal.formatted_address;
+  }
 });
 ```
 
